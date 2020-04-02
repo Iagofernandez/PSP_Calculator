@@ -16,13 +16,13 @@ public class PSP_Calculadora_Servidor {
 
         try {
             
-            System.out.println("Creando socket servidor");
+            System.out.println("Creando socket ");
             ServerSocket serverSocket = new ServerSocket(port);
 
           
             while (true) {
               
-                System.out.println("Aceptando conexiones");
+                System.out.println("Aceptando");
                 Socket newSocket = serverSocket.accept();
 
               
@@ -50,35 +50,31 @@ class Cliente extends Thread {
     }
 
    
-    public static double sumar(double num1, double num2) {
-        System.out.println("Sumando: " + num1 + " + " + num2);
+    public static double suma(double num1, double num2) {
+        System.out.println(" " + num1 + " + " + num2);
         return num1 + num2;
     }
 
    
-    public static double restar(double num1, double num2) {
-        System.out.println("Restando: " + num1 + " - " + num2);
+    public static double resta(double num1, double num2) {
+        System.out.println(" " + num1 + " - " + num2);
         return num1 - num2;
     }
 
    
-    public static double multiplicar(double num1, double num2) {
-        System.out.println("Multiplicando: " + num1 + " * " + num2);
+    public static double multiplicacion(double num1, double num2) {
+        System.out.println(" " + num1 + " * " + num2);
         return num1 * num2;
     }
 
    
-    public static double dividir(double num1, double num2) {
-        System.out.println("Dividiendo: " + num1 + " / " + num2);
+    public static double division(double num1, double num2) {
+        System.out.println(" " + num1 + " / " + num2);
         return num1 / num2;
     }
 
  
-    public static double raizCuadrada(double num1) {
-        System.out.println("Raiz cuadrada: " + num1 + "√");
-
-        return Math.sqrt(num1);
-    }
+    
 
     @Override
     public void run() {
@@ -95,24 +91,22 @@ class Cliente extends Thread {
                 switch (cadena[1]) {
                   
                     case "+":
-                        resultado = sumar(Double.valueOf(cadena[0]), Double.valueOf(cadena[2]));
+                        resultado = suma(Double.valueOf(cadena[0]), Double.valueOf(cadena[2]));
                         break;
                    
                     case "-":
-                        resultado = restar(Double.valueOf(cadena[0]), Double.valueOf(cadena[2]));
+                        resultado = resta(Double.valueOf(cadena[0]), Double.valueOf(cadena[2]));
                         break;
                   
                     case "*":
-                        resultado = multiplicar(Double.valueOf(cadena[0]), Double.valueOf(cadena[2]));
+                        resultado = multiplicacion(Double.valueOf(cadena[0]), Double.valueOf(cadena[2]));
                         break;
                    
                     case "/":
-                        resultado = dividir(Double.valueOf(cadena[0]), Double.valueOf(cadena[2]));
+                        resultado = division(Double.valueOf(cadena[0]), Double.valueOf(cadena[2]));
                         break;
                    
-                    case ".":
-                        resultado = raizCuadrada(Double.valueOf(cadena[0]));
-                        break;
+                   
                 }
             
            
